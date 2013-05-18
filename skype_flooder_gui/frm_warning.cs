@@ -17,7 +17,7 @@ namespace skype_flooder_gui
 
         private void frm_warning_Load(object sender, EventArgs e)
         {
-            System.Media.SystemSounds.Exclamation.Play();
+             System.Media.SystemSounds.Exclamation.Play();
 
         }
         private const int CP_NOCLOSE_BUTTON = 0x200;
