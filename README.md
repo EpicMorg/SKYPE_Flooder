@@ -1,4 +1,4 @@
-SKYPE_Flooder
+SKYPE Flooder
 =============
 
 Easy flooder with using skype4com-lib in .net C#.
