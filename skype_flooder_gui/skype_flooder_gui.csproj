@@ -102,6 +102,10 @@
   <ItemGroup>
     <None Include="Resources\LOGO.png" />
     <None Include="res\skype_s.png" />
+    <None Include="res\912-001.png" />
+    <None Include="res\913-001.png" />
+    <None Include="res\914-001.png" />
+    <None Include="res\916.png" />
     <Content Include="skypes_3772.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

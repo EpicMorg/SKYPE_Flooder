@@ -38,7 +38,12 @@ namespace skype_flooder_gui
 
         private void button1_Click(object sender, EventArgs e)
         {
-            skype.SendMessage(txt_target.Text, txt_flood_text.Text);
+            if (rb_single_sending.Checked)
+            {
+                skype.SendMessage(txt_target.Text, txt_flood_text.Text);
+                //beep
+                txt_flood_text.Text = "";
+            }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -46,5 +51,25 @@ namespace skype_flooder_gui
             txt_target.Text = ((skype_friends)list_users.SelectedItem).s_user.Handle;
         }
 
+        private void chk_status_flooding_CheckedChanged(object sender, EventArgs e)
+        {
+            rb_fuckoff.Enabled = chk_status_flooding.Checked;
+            rb_ghost.Enabled = chk_status_flooding.Checked;
+            rb_nothere.Enabled = chk_status_flooding.Checked;
+            rb_online.Enabled = chk_status_flooding.Checked;
+        }
+
+        private void txt_flood_text_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_flood_text.Text == "" & rb_single_sending.Checked)
+            {
+                btn_flooding.Enabled = false;
+            }
+            else
+            {
+                btn_flooding.Enabled = true;
+            }
+        }
+   
     }
 }

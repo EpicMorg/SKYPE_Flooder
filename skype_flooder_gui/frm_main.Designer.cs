@@ -36,10 +36,29 @@
             this.lbl_user = new System.Windows.Forms.Label();
             this.txt_target = new System.Windows.Forms.TextBox();
             this.list_users = new System.Windows.Forms.ListBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbx_settings = new System.Windows.Forms.GroupBox();
+            this.rb_single_sending = new System.Windows.Forms.RadioButton();
+            this.rb_timeout_messages = new System.Windows.Forms.RadioButton();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.chk_status_flooding = new System.Windows.Forms.CheckBox();
+            this.rb_online = new System.Windows.Forms.RadioButton();
+            this.pic_logo = new System.Windows.Forms.PictureBox();
+            this.pic_online = new System.Windows.Forms.PictureBox();
+            this.pic_nothere = new System.Windows.Forms.PictureBox();
+            this.rb_nothere = new System.Windows.Forms.RadioButton();
+            this.pic_fuckoff = new System.Windows.Forms.PictureBox();
+            this.rb_fuckoff = new System.Windows.Forms.RadioButton();
+            this.pic_ghost = new System.Windows.Forms.PictureBox();
+            this.rb_ghost = new System.Windows.Forms.RadioButton();
+            this.rb_infinite_messages = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.skype_protokol)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.gbx_settings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_online)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_nothere)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_fuckoff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_ghost)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_flood_text
@@ -49,13 +68,15 @@
             this.txt_flood_text.Name = "txt_flood_text";
             this.txt_flood_text.Size = new System.Drawing.Size(588, 147);
             this.txt_flood_text.TabIndex = 0;
+            this.txt_flood_text.TextChanged += new System.EventHandler(this.txt_flood_text_TextChanged);
             // 
             // btn_flooding
             // 
+            this.btn_flooding.Enabled = false;
             this.btn_flooding.Location = new System.Drawing.Point(525, 495);
             this.btn_flooding.Name = "btn_flooding";
             this.btn_flooding.Size = new System.Drawing.Size(75, 23);
-            this.btn_flooding.TabIndex = 1;
+            this.btn_flooding.TabIndex = 0;
             this.btn_flooding.Text = "FLOOD";
             this.btn_flooding.UseVisualStyleBackColor = true;
             this.btn_flooding.Click += new System.EventHandler(this.button1_Click);
@@ -122,20 +143,21 @@
             this.list_users.TabIndex = 6;
             this.list_users.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::skype_flooder_gui.Properties.Resources.LOGO;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(612, 131);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
             // gbx_settings
             // 
+            this.gbx_settings.Controls.Add(this.rb_infinite_messages);
+            this.gbx_settings.Controls.Add(this.pic_ghost);
+            this.gbx_settings.Controls.Add(this.rb_ghost);
+            this.gbx_settings.Controls.Add(this.pic_fuckoff);
+            this.gbx_settings.Controls.Add(this.rb_fuckoff);
+            this.gbx_settings.Controls.Add(this.pic_nothere);
+            this.gbx_settings.Controls.Add(this.rb_nothere);
+            this.gbx_settings.Controls.Add(this.pic_online);
+            this.gbx_settings.Controls.Add(this.rb_online);
+            this.gbx_settings.Controls.Add(this.chk_status_flooding);
+            this.gbx_settings.Controls.Add(this.numericUpDown1);
+            this.gbx_settings.Controls.Add(this.rb_timeout_messages);
+            this.gbx_settings.Controls.Add(this.rb_single_sending);
             this.gbx_settings.Location = new System.Drawing.Point(15, 189);
             this.gbx_settings.Name = "gbx_settings";
             this.gbx_settings.Size = new System.Drawing.Size(273, 147);
@@ -143,13 +165,158 @@
             this.gbx_settings.TabStop = false;
             this.gbx_settings.Text = "Settings";
             // 
+            // rb_single_sending
+            // 
+            this.rb_single_sending.AutoSize = true;
+            this.rb_single_sending.Checked = true;
+            this.rb_single_sending.Location = new System.Drawing.Point(24, 19);
+            this.rb_single_sending.Name = "rb_single_sending";
+            this.rb_single_sending.Size = new System.Drawing.Size(104, 17);
+            this.rb_single_sending.TabIndex = 0;
+            this.rb_single_sending.Text = "Single messages";
+            this.rb_single_sending.UseVisualStyleBackColor = true;
+            // 
+            // rb_timeout_messages
+            // 
+            this.rb_timeout_messages.AutoSize = true;
+            this.rb_timeout_messages.Location = new System.Drawing.Point(24, 65);
+            this.rb_timeout_messages.Name = "rb_timeout_messages";
+            this.rb_timeout_messages.Size = new System.Drawing.Size(123, 17);
+            this.rb_timeout_messages.TabIndex = 0;
+            this.rb_timeout_messages.Text = "Sending with timeout";
+            this.rb_timeout_messages.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(153, 65);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(97, 20);
+            this.numericUpDown1.TabIndex = 1;
+            // 
+            // chk_status_flooding
+            // 
+            this.chk_status_flooding.AutoSize = true;
+            this.chk_status_flooding.Location = new System.Drawing.Point(24, 91);
+            this.chk_status_flooding.Name = "chk_status_flooding";
+            this.chk_status_flooding.Size = new System.Drawing.Size(197, 17);
+            this.chk_status_flooding.TabIndex = 2;
+            this.chk_status_flooding.Text = "Change skype status when flooding:";
+            this.chk_status_flooding.UseVisualStyleBackColor = true;
+            this.chk_status_flooding.CheckedChanged += new System.EventHandler(this.chk_status_flooding_CheckedChanged);
+            // 
+            // rb_online
+            // 
+            this.rb_online.AutoSize = true;
+            this.rb_online.Enabled = false;
+            this.rb_online.Location = new System.Drawing.Point(64, 108);
+            this.rb_online.Name = "rb_online";
+            this.rb_online.Size = new System.Drawing.Size(14, 13);
+            this.rb_online.TabIndex = 3;
+            this.rb_online.UseVisualStyleBackColor = true;
+            // 
+            // pic_logo
+            // 
+            this.pic_logo.BackgroundImage = global::skype_flooder_gui.Properties.Resources.LOGO;
+            this.pic_logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pic_logo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pic_logo.Location = new System.Drawing.Point(0, 0);
+            this.pic_logo.Name = "pic_logo";
+            this.pic_logo.Size = new System.Drawing.Size(612, 131);
+            this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pic_logo.TabIndex = 7;
+            this.pic_logo.TabStop = false;
+            // 
+            // pic_online
+            // 
+            this.pic_online.Enabled = false;
+            this.pic_online.Image = global::skype_flooder_gui.Properties.Resources._912_001;
+            this.pic_online.Location = new System.Drawing.Point(61, 126);
+            this.pic_online.Name = "pic_online";
+            this.pic_online.Size = new System.Drawing.Size(16, 16);
+            this.pic_online.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pic_online.TabIndex = 4;
+            this.pic_online.TabStop = false;
+            // 
+            // pic_nothere
+            // 
+            this.pic_nothere.Enabled = false;
+            this.pic_nothere.Image = global::skype_flooder_gui.Properties.Resources._913_001;
+            this.pic_nothere.Location = new System.Drawing.Point(97, 126);
+            this.pic_nothere.Name = "pic_nothere";
+            this.pic_nothere.Size = new System.Drawing.Size(16, 16);
+            this.pic_nothere.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pic_nothere.TabIndex = 6;
+            this.pic_nothere.TabStop = false;
+            // 
+            // rb_nothere
+            // 
+            this.rb_nothere.AutoSize = true;
+            this.rb_nothere.Enabled = false;
+            this.rb_nothere.Location = new System.Drawing.Point(99, 108);
+            this.rb_nothere.Name = "rb_nothere";
+            this.rb_nothere.Size = new System.Drawing.Size(14, 13);
+            this.rb_nothere.TabIndex = 5;
+            this.rb_nothere.UseVisualStyleBackColor = true;
+            // 
+            // pic_fuckoff
+            // 
+            this.pic_fuckoff.Enabled = false;
+            this.pic_fuckoff.Image = global::skype_flooder_gui.Properties.Resources._914_001;
+            this.pic_fuckoff.Location = new System.Drawing.Point(131, 126);
+            this.pic_fuckoff.Name = "pic_fuckoff";
+            this.pic_fuckoff.Size = new System.Drawing.Size(16, 16);
+            this.pic_fuckoff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pic_fuckoff.TabIndex = 8;
+            this.pic_fuckoff.TabStop = false;
+            // 
+            // rb_fuckoff
+            // 
+            this.rb_fuckoff.AutoSize = true;
+            this.rb_fuckoff.Enabled = false;
+            this.rb_fuckoff.Location = new System.Drawing.Point(133, 108);
+            this.rb_fuckoff.Name = "rb_fuckoff";
+            this.rb_fuckoff.Size = new System.Drawing.Size(14, 13);
+            this.rb_fuckoff.TabIndex = 7;
+            this.rb_fuckoff.UseVisualStyleBackColor = true;
+            // 
+            // pic_ghost
+            // 
+            this.pic_ghost.Enabled = false;
+            this.pic_ghost.Image = global::skype_flooder_gui.Properties.Resources._916;
+            this.pic_ghost.Location = new System.Drawing.Point(163, 126);
+            this.pic_ghost.Name = "pic_ghost";
+            this.pic_ghost.Size = new System.Drawing.Size(16, 16);
+            this.pic_ghost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pic_ghost.TabIndex = 10;
+            this.pic_ghost.TabStop = false;
+            // 
+            // rb_ghost
+            // 
+            this.rb_ghost.AutoSize = true;
+            this.rb_ghost.Enabled = false;
+            this.rb_ghost.Location = new System.Drawing.Point(165, 108);
+            this.rb_ghost.Name = "rb_ghost";
+            this.rb_ghost.Size = new System.Drawing.Size(14, 13);
+            this.rb_ghost.TabIndex = 9;
+            this.rb_ghost.UseVisualStyleBackColor = true;
+            // 
+            // rb_infinite_messages
+            // 
+            this.rb_infinite_messages.AutoSize = true;
+            this.rb_infinite_messages.Location = new System.Drawing.Point(24, 42);
+            this.rb_infinite_messages.Name = "rb_infinite_messages";
+            this.rb_infinite_messages.Size = new System.Drawing.Size(146, 17);
+            this.rb_infinite_messages.TabIndex = 11;
+            this.rb_infinite_messages.Text = "Infinite sending messages";
+            this.rb_infinite_messages.UseVisualStyleBackColor = true;
+            // 
             // frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 532);
             this.Controls.Add(this.gbx_settings);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pic_logo);
             this.Controls.Add(this.list_users);
             this.Controls.Add(this.txt_target);
             this.Controls.Add(this.lbl_user);
@@ -162,10 +329,17 @@
             this.MaximizeBox = false;
             this.Name = "frm_main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Skype Flooder+";
+            this.Text = "Skype Flooder";
             this.Load += new System.EventHandler(this.frm_main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.skype_protokol)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.gbx_settings.ResumeLayout(false);
+            this.gbx_settings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_online)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_nothere)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_fuckoff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_ghost)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,8 +354,21 @@
         private System.Windows.Forms.Label lbl_user;
         private System.Windows.Forms.TextBox txt_target;
         private System.Windows.Forms.ListBox list_users;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pic_logo;
         private System.Windows.Forms.GroupBox gbx_settings;
+        private System.Windows.Forms.RadioButton rb_timeout_messages;
+        private System.Windows.Forms.RadioButton rb_single_sending;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.CheckBox chk_status_flooding;
+        private System.Windows.Forms.RadioButton rb_online;
+        private System.Windows.Forms.PictureBox pic_ghost;
+        private System.Windows.Forms.RadioButton rb_ghost;
+        private System.Windows.Forms.PictureBox pic_fuckoff;
+        private System.Windows.Forms.RadioButton rb_fuckoff;
+        private System.Windows.Forms.PictureBox pic_nothere;
+        private System.Windows.Forms.RadioButton rb_nothere;
+        private System.Windows.Forms.PictureBox pic_online;
+        private System.Windows.Forms.RadioButton rb_infinite_messages;
     }
 }
 
