@@ -19,12 +19,20 @@ namespace skype_flooder_gui
 
         private void frm_main_Load(object sender, EventArgs e)
         {
-
-            Regex r = new Regex(@"xmpp\:.*");
-            foreach (User friend in skype.Friends)
+            
+            try
             {
-if (!r.IsMatch(friend.Handle))
-                listBox1.Items.Add(new skype_friends() { s_user = friend });
+                Regex r = new Regex(@"xmpp\:.*");
+                foreach (User friend in skype.Friends)
+                {
+                    if (!r.IsMatch(friend.Handle))
+                        list_users.Items.Add(new skype_friends() { s_user = friend });
+                }
+            }
+            catch
+            {
+                frm_warning frmwarning = new frm_warning();
+                frmwarning.ShowDialog();
             }
         }
 
@@ -35,7 +43,7 @@ if (!r.IsMatch(friend.Handle))
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txt_target.Text = ((skype_friends)listBox1.SelectedItem).s_user.Handle;
+            txt_target.Text = ((skype_friends)list_users.SelectedItem).s_user.Handle;
         }
 
     }
