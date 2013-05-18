@@ -19,7 +19,7 @@ namespace skype_flooder_gui
 
         private void frm_main_Load(object sender, EventArgs e)
         {
-            
+             
             try
             {
                 Regex r = new Regex(@"xmpp\:.*");
