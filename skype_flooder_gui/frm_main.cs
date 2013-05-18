@@ -70,6 +70,12 @@ namespace skype_flooder_gui
                 btn_flooding.Enabled = true;
             }
         }
+
+        private void brn_about_Click(object sender, EventArgs e)
+        {
+            frm_about frmabout = new frm_about();
+            frmabout.ShowDialog();
+        }
    
     }
 }

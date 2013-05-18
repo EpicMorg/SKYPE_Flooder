@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("skype_flooder_gui")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Skype Flooder GUI")]
+[assembly: AssemblyDescription("GUI")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("skype_flooder_gui")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyProduct("Skype Flooder GUI")]
+[assembly: AssemblyCopyright("Copyright © ? 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
