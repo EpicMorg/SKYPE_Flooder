@@ -248,7 +248,7 @@ namespace skype_flooder_gui {
 			( (ISupportInitialize)( pic_logo ) ).EndInit();
 			ResumeLayout( false );
 			PerformLayout();
-
+			this.rb_infinite_messages.Enabled = false;
 		}
 		private TextBox txt_flood_text;
 		private Button btn_flooding;
