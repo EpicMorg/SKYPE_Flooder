@@ -26,9 +26,13 @@ namespace skype_flooder_gui {
 			list_users.SelectedIndexChanged += ( a, b ) => {txt_target.Text = ( (skype_friends)list_users.SelectedItem ).s_user.Handle;};
 			btn_flooding.Click += ( a, b ) => this.Attacking ^= true;
 			chk_status_flooding.CheckedChanged += ( a, b ) => {rb_fuckoff.Enabled = rb_ghost.Enabled = rb_nothere.Enabled = rb_online.Enabled = chk_status_flooding.Checked;};
-			brn_about.Click += ( a, b ) => {new frm_about().ShowDialog();
-			Load += on_load;
-		}
+            brn_about.Click += (a, b) =>
+            {
+                new frm_about().ShowDialog();
+                Load += on_load;
+            };
+        }
+		 
 		private void on_load( object sender, EventArgs e ) {
 			try {
 				Skype skype = new SkypeClass();//skype
