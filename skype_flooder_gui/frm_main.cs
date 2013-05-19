@@ -8,25 +8,16 @@ namespace skype_flooder_gui {
 		Thread thr;
 		private bool _attacking;
 		public bool Attacking {
-			get {
-				return _attacking;
-			}
+			get { return _attacking; }
 			set {
-				if ( value & !_attacking && !thr.IsAlive )
+				if ( value & !_attacking && (thr == null || !thr.IsAlive ))
 					run_flooder();
 				_attacking = value;
 				btn_flooding.Text = value ? "Stop" : "Flood!";
 			}
 		}
-		void run_flooder() {
-			( this.thr = new Thread( new ThreadStart( AttackProcess ) ) ).Start();
-		}
-		public frm_main() {
-			//int protocol = Convert.ToInt32( skype_protokol.Value );
-			//skype.Attach( protocol, false );
-			
-			InitializeComponent();
-		}
+		void run_flooder() {( this.thr = new Thread( new ThreadStart( AttackProcess ) ) ).Start();}
+		public frm_main() {InitializeComponent();}
 		private void on_load( object sender, EventArgs e ) {
 			try {
 				Skype skype = new SkypeClass();//skype
@@ -39,28 +30,24 @@ namespace skype_flooder_gui {
 						} );
 				}
 			}
-			catch {
-				new frm_warning().ShowDialog();
-			}
-		}
-		private void run_stop_attack( object sender, EventArgs e ) {
-			this.Attacking ^= true;
+			catch { new frm_warning().ShowDialog(); }
 		}
 		private void AttackProcess() {
 			Skype skype = new SkypeClass();//skype
-			string target="", message="";
-			int delay = 0, flood_type = 0,protocol=0;
-			this.Invoke((Action)(()=>{
+			string target = "", message = "";
+			int delay = 0, flood_type = 0, protocol = 0;
+			this.Invoke( (Action)( () => {
 				target = this.txt_target.Text;
 				message = txt_flood_text.Text;
-				delay = Convert.ToInt32( this.nud_delay.Value )*1000;
+				delay = Convert.ToInt32( this.nud_delay.Value ) * 1000;
 				flood_type = this.rb_infinite_messages.Checked ? 0 : this.rb_timeout_messages.Checked ? 1 : 2;
 				protocol = Convert.ToInt32( skype_protokol.Value );
-			}));
+			} ) );
 			if ( message.Length == 0 ) {
 				this.Invoke( (Action)( () => Attacking = false ) );
 				return;
 			}
+			
 			skype.Attach( protocol, false );
 			if ( flood_type == 2 ) {
 				try {
@@ -71,12 +58,9 @@ namespace skype_flooder_gui {
 				return;
 			}
 			while ( this.Attacking ) {
-				try {
-					skype.SendMessage( target, message );
-				}
-				catch {
-				}
-				if ( flood_type == 1 )
+				try { skype.SendMessage( target, message ); }
+				catch {}
+				if ( flood_type == 1 && delay>0)
 					Thread.Sleep( delay );
 			}
 		}
