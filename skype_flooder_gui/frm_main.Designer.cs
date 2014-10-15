@@ -333,6 +333,7 @@
             this.Name = "frm_main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Skype Flooder";
+            this.Load += new System.EventHandler(this.on_load);
             ((System.ComponentModel.ISupportInitialize)(this.skype_protokol)).EndInit();
             this.gbx_settings.ResumeLayout(false);
             this.gbx_settings.PerformLayout();

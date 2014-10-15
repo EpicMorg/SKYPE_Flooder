@@ -77,6 +77,6 @@ namespace skype_flooder_gui {
 				if ( flood_type == 1 && delay>0)
 					Thread.Sleep( delay );
 			}
-		}
+        }
 	}
 }
