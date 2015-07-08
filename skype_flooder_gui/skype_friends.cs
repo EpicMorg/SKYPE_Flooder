@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 using SKYPE4COMLib;
 
 namespace skype_flooder_gui
 {
-    class skype_friends
+    class SkypeFriends
     {
-        public User s_user;
+        public User SUser;
 
         public override string ToString()
         {
-            return s_user.FullName.Trim().Length > 0 ? s_user.FullName : s_user.Handle;
+            return SUser.FullName.Trim().Length > 0 ? SUser.FullName : SUser.Handle;
             //return s_user.FullName;
         } 
     }

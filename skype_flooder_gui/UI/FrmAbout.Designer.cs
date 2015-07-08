@@ -1,6 +1,6 @@
-﻿namespace skype_flooder_gui
+﻿namespace skype_flooder_gui.UI
 {
-    partial class frm_about
+    partial class FrmAbout
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_about));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbout));
             this.lbl_logo = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.pic_logo = new System.Windows.Forms.PictureBox();
             this.lbl_ver = new System.Windows.Forms.Label();
-            this.link = new System.Windows.Forms.LinkLabel();
+            this.btnGit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +41,7 @@
             // 
             this.lbl_logo.AutoSize = true;
             this.lbl_logo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_logo.Location = new System.Drawing.Point(168, 12);
+            this.lbl_logo.Location = new System.Drawing.Point(147, 12);
             this.lbl_logo.Name = "lbl_logo";
             this.lbl_logo.Size = new System.Drawing.Size(124, 20);
             this.lbl_logo.TabIndex = 2;
@@ -49,7 +49,7 @@
             // 
             // btn_close
             // 
-            this.btn_close.Location = new System.Drawing.Point(236, 114);
+            this.btn_close.Location = new System.Drawing.Point(249, 123);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(75, 23);
             this.btn_close.TabIndex = 3;
@@ -70,31 +70,28 @@
             // lbl_ver
             // 
             this.lbl_ver.AutoSize = true;
-            this.lbl_ver.Location = new System.Drawing.Point(169, 46);
+            this.lbl_ver.Location = new System.Drawing.Point(148, 42);
             this.lbl_ver.Name = "lbl_ver";
-            this.lbl_ver.Size = new System.Drawing.Size(81, 13);
+            this.lbl_ver.Size = new System.Drawing.Size(40, 13);
             this.lbl_ver.TabIndex = 4;
-            this.lbl_ver.Text = "Version: 0.0.0.0";
+            this.lbl_ver.Text = "0.0.0.0";
             // 
-            // link
+            // btnGit
             // 
-            this.link.AutoSize = true;
-            this.link.BackColor = System.Drawing.Color.Transparent;
-            this.link.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.link.Location = new System.Drawing.Point(139, 140);
-            this.link.Name = "link";
-            this.link.Size = new System.Drawing.Size(172, 9);
-            this.link.TabIndex = 5;
-            this.link.TabStop = true;
-            this.link.Text = "https://github.com/stamepicmorg/SKYPE_Flooder";
-            this.link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
+            this.btnGit.Location = new System.Drawing.Point(147, 123);
+            this.btnGit.Name = "btnGit";
+            this.btnGit.Size = new System.Drawing.Size(75, 23);
+            this.btnGit.TabIndex = 6;
+            this.btnGit.Text = "GitHub";
+            this.btnGit.UseVisualStyleBackColor = true;
+            this.btnGit.Click += new System.EventHandler(this.btnGit_Click);
             // 
-            // frm_about
+            // FrmAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(323, 158);
-            this.Controls.Add(this.link);
+            this.ClientSize = new System.Drawing.Size(336, 158);
+            this.Controls.Add(this.btnGit);
             this.Controls.Add(this.lbl_ver);
             this.Controls.Add(this.btn_close);
             this.Controls.Add(this.lbl_logo);
@@ -103,7 +100,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frm_about";
+            this.Name = "FrmAbout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "About";
             this.Load += new System.EventHandler(this.frm_about_Load);
@@ -119,6 +116,6 @@
         private System.Windows.Forms.Label lbl_logo;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Label lbl_ver;
-        private System.Windows.Forms.LinkLabel link;
+        private System.Windows.Forms.Button btnGit;
     }
 }
